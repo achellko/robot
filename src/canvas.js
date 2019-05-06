@@ -1,8 +1,14 @@
 import React, { Component } from "react";
+import Konva from "konva";
 import { render } from "react-dom";
 import { Stage, Layer, Shape, Circle, Rect } from "react-konva";
 
-class App extends Component {
+class Canvas extends Component {
+  constructor(props) {
+    super(props);
+    this.cref = React.createRef();
+  }
+
   render() {
     return (
       <Stage width={window.innerWidth} height={window.innerHeight}>
@@ -15,6 +21,7 @@ class App extends Component {
               context.quadraticCurveTo(400, 150, 300, 300);
               context.lineTo(300, 500);
               context.closePath();
+              // (!) Konva specific method, it is very important
               context.fillStrokeShape(shape);
             }}
             fill="#00D2FF"
@@ -28,6 +35,7 @@ class App extends Component {
               context.lineTo(600, 400);
               context.lineTo(500, 400);
               context.closePath();
+              // (!) Konva specific method, it is very important
               context.fillStrokeShape(shape);
             }}
             fill="#00D2FF"
@@ -41,6 +49,7 @@ class App extends Component {
               context.lineTo(200, 400);
               context.lineTo(300, 400);
               context.closePath();
+              // (!) Konva specific method, it is very important
               context.fillStrokeShape(shape);
             }}
             fill="#00D2FF"
@@ -55,6 +64,7 @@ class App extends Component {
               context.lineTo(450, 600);
               context.lineTo(450, 500);
               context.closePath();
+              // (!) Konva specific method, it is very important
               context.fillStrokeShape(shape);
             }}
             fill="#00D2FF"
@@ -69,6 +79,7 @@ class App extends Component {
               context.lineTo(350, 600);
               context.lineTo(350, 500);
               context.closePath();
+              // (!) Konva specific method, it is very important
               context.fillStrokeShape(shape);
             }}
             fill="#00D2FF"
@@ -83,4 +94,4 @@ class App extends Component {
   }
 }
 
-render(<App />, document.getElementById("root"));
+export default Canvas;
