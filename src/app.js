@@ -19,6 +19,12 @@ class NameForm extends React.Component {
     event.preventDefault();
   }
 
+  onRobotClicked(arg) {
+    this.setState({
+      value: "AUUU!"
+    });
+  }
+
   render() {
     return (
       <div>
@@ -31,9 +37,12 @@ class NameForm extends React.Component {
               onChange={this.handleChange}
             />
           </label>
-          <input type="submit" value="Submit" />
+          {/* <input type="submit" value="Submit" /> */}
         </form>
-        <Canvas what={this.state.value} />
+        <Canvas
+          what={this.state.value}
+          reaction={arg => this.onRobotClicked(arg)}
+        />
       </div>
     );
   }
