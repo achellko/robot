@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Konva from "konva";
 import { render } from "react-dom";
-import { Stage, Layer, Shape, Circle, Rect } from "react-konva";
+import { Stage, Layer, Shape, Circle, Rect, Text } from "react-konva";
 
 class Canvas extends Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class Canvas extends Component {
     return (
       <Stage width={window.innerWidth} height={window.innerHeight}>
         <Layer>
+          <Text text={this.props.what} fontSize={15} />
           <Shape
             sceneFunc={(context, shape) => {
               context.beginPath();
